@@ -1,0 +1,89 @@
+GET http://localhost:8080/api/background/day
+Accept: application/json
+
+
+###
+GET http://localhost:8080/api/membership/index/1287559384
+Accept: application/json
+
+###前两段测试不是这个项目的
+
+###
+POST http://localhost:8080/api/register
+Content-Type: application/json
+
+{
+  "name": "ssj",
+  "tel": "12345678910",
+  "pwd": "123456",
+  "identity": "123456789123456789",
+  "identityFlag": "1",
+  "school": "NEFU"
+}
+###
+POST http://localhost:8080/api/register
+Content-Type: application/json
+
+{
+  "name": "店铺负责人",
+  "tel": "19876543211",
+  "pwd": "123456",
+  "identity": "223456789123456789",
+  "identityFlag": "2",
+  "storeName": "这是一家店铺"
+}
+
+###
+POST http://localhost:8080/api/register
+Content-Type: application/json
+
+{
+  "name": "组织负责人",
+  "tel": "44335678910",
+  "pwd": "root11",
+  "identity": "123456789123456789",
+  "identityFlag": "3",
+  "school": "NEFUer",
+  "storeName": "组织名称"
+}
+###
+POST http://localhost:8080/api/register
+Content-Type: application/json
+
+{
+  "name": "hao",
+  "tel": "54355678910",
+  "pwd": "root111edf",
+  "identity": "123454789123456789",
+  "identityFlag": "3",
+  "school": "ssde",
+  "storeName": "ZBC"
+}
+###
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "tel": "44335678910",
+  "pwd": "root11"
+}
+###
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "tel": "19876543211",
+  "pwd": "123456"
+}
+###
+POST http://localhost:8080/api/commodity/postCommodity
+Content-Type: application/json
+
+{
+  "name": "秘制小汉堡",
+  "money": "122",
+  "stock": "10",
+  "personal": {
+    "tel": 19876543211
+  }
+}
