@@ -1,5 +1,6 @@
 package cn.cbschool.chuanbai.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Entity
 @Getter@Setter@NoArgsConstructor
+@JsonIgnoreProperties({"commodities","activities"})
 public class Personal {
     //使用电话号作为登录账号
     @Id
@@ -23,9 +25,9 @@ public class Personal {
     @Size(min = 2,max = 6,message = "您输入的值为${validatedValue},长度应在2到6位")
     private String name;
     //当identityFlag为1时，StoreName为空
-    private String storeName;
-    @Size(min = 18,max = 18
-    ,message = "您输入的值为${validatedValue},不符合标准身份证号位数")
+    private String companyName;
+  /*  @Size(min = 18,max = 18
+    ,message = "您输入的值为${validatedValue},不符合标准身份证号位数")*/
     private String identity;
 
 
@@ -35,9 +37,14 @@ public class Personal {
     @Column(columnDefinition = "timestamp default current_timestamp",
             insertable = false,
             updatable = false)
-    private LocalDateTime insertTime;
-    private String school;
+        private LocalDateTime insertTime;
+        private String school;
 
+        private String schoolNumber;
+
+
+        @OneToMany(mappedBy = "personal")
+        private List<Activity> activities;
 
     @OneToMany(mappedBy = "personal")
     private List<PaymentOrder> orders;

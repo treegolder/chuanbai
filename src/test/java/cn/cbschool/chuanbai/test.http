@@ -72,8 +72,8 @@ POST http://localhost:8080/api/login
 Content-Type: application/json
 
 {
-  "tel": "19876543211",
-  "pwd": "123456"
+  "tel": "12121212121",
+  "pwd": "111111"
 }
 ###
 POST http://localhost:8080/api/commodity/postCommodity
@@ -84,6 +84,34 @@ Content-Type: application/json
   "money": "122",
   "stock": "10",
   "personal": {
-    "tel": 19876543211
+    "tel": 23232323232
   }
 }
+
+###
+POST http://localhost:8080/api/postactivity
+Content-Type: application/json
+
+{
+  "name": "发布一个活动",
+  "place": "这里是活动的参与方式",
+  "date": "这里是活动举办的日期",
+  "time": "这里是活动开始的时间",
+  "detail": "这是活动的具体内容",
+  "personal": {
+    "tel": 12121212121
+  }
+}
+###
+GET http://localhost:8080/api/activities
+Accept: application/json
+###
+GET http://localhost:8080/api/activities/9
+Accept: application/json
+###
+GET http://localhost:8080/api/users/12121212121/activities
+Accept: application/json
+
+###
+POST http://localhost:8080/api/delete/activities/7
+Accept: application/json
